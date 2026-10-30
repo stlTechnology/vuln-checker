@@ -1,0 +1,32 @@
+{
+  "host_id": null,
+  "layers": ["os", "python", "container"],
+  "severity_floor": "none",
+  "assets_file": "config/assets.json",
+  "sources": [
+    {
+      "name": "in-house",
+      "type": "in-house",
+      "enabled": false,
+      "url": "",
+      "timeout": 30,
+      "retries": 2
+    },
+    {
+      "name": "osv",
+      "type": "osv",
+      "enabled": true,
+      "base_url": "https://api.osv.dev",
+      "batch_size": 500,
+      "cache_dir": "cache/osv_vulns",
+      "cache_ttl_days": 7,
+      "timeout": 30,
+      "retries": 2,
+      "max_workers": 8
+    }
+  ],
+  "output": {
+    "reports_dir": "reports",
+    "state_file": "state/state.json"
+  }
+}
